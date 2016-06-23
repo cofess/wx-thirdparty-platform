@@ -285,6 +285,7 @@
       var inputfile = this, reader = new FileReader();
       reader.onloadend = function(){
         inputfile.style['background-image'] = 'url('+reader.result+')';
+        inputfile.style['background-size'] = 'cover';
         }
       reader.readAsDataURL(e.target.files[0]);
       }
