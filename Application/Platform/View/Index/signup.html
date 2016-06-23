@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>注册-青果乐园 SaaS平台</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="{$resource_basic}bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{$resource_basic}font-awesome/css/font-awesome.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{$resource_basic}dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="{$resource_basic}dist/css/common.css">
+  <link rel="stylesheet" href="{$resource_basic}plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="{$resource_basic}dist/css/page/page-login.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="login-page">
+<!-- header -->
+<header class="bt b-sm b-primary clearfix" id="top" role="banner">
+  <nav class="navbar navbar-default b-no mb-no">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">青果乐园 SaaS平台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://mp.weixin.qq.com/" target="_blank">微信公众平台</a></li>
+            <li><a href="#">平台介绍</a></li>
+            <li><a href="#">使用帮助</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</header>
+<!-- main -->
+<main class="main">
+  <section class="pv-4x">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <h3>注册新用户</h3>
+              <p>注册成功后将获取 6 个月的免费体验，无功能限制</p>
+            </div>
+            <div class="panel-body">
+              <form class="form-horizontal" data-toggle="validator" role="form" method="post">
+                
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">联系人手机号<span class="text-danger">*</span></label>
+                  <div class="col-sm-10">
+                    <input type="text" maxlength="11" class="form-control" id="mobile" name="mobile" placeholder="请输入您的手机号" data-error="手机号不能为空，请输入您的手机号！" required>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">登录密码<span class="text-danger">*</span></label>
+                  <div class="col-sm-10">
+                    <input type="password" data-minlength="6" data-maxlength="18" class="form-control" id="password" name="password" placeholder="限制6~18位密码，不可输入特殊字符" data-error="限制6~18位密码，不可输入特殊字符！" required>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">确认密码<span class="text-danger">*</span></label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="请再次输入密码" data-error="限制6~18位密码，不可输入特殊字符！" data-match="#password" data-match-error="两次输入密码不一致！" required>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">联系人姓名<span class="text-danger">*</span></label>
+                  <div class="col-sm-10">
+                    <input type="text" maxlength="15" class="form-control" id="fullname" name="fullname" placeholder="请输入您的真实姓名" data-error="联系人姓名不能为空，请输入您的真实姓名！" required>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">公司名称<span class="text-danger">*</span></label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="companyname" name="companyname" placeholder="请输入公司名称" data-error="公司名称不能为空，请输入公司名称！" required>
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">公司类型</label>
+                  <div class="col-sm-10">
+                    <div class="radio">
+                      <label><input type="radio" name="companyType" id="companyType1" value="1" checked=""> 私募公司 &nbsp;&nbsp; </label> 
+                      <label><input type="radio" name="companyType" id="companyType2" value="0"> 其他公司</label>  
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">图片验证码</label>
+                  <div class="col-sm-10">
+                    <div class="col-sm-3" style="padding-left:0;">
+                      <input type="text" class="form-control" id="img_code" name="img_code" placeholder="输入图片验证码" value="" data-error="图片验证码不能为空！" required> 
+                    </div>
+                    <div class="col-sm-9">
+                    <img id="refresh_img_code" src="{:U('Platform/Index/get_verify_image')}" style="width:120px;" /> 点击图片刷新
+                     </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">验证码<span class="text-danger">*</span></label>
+                  <div class="col-sm-2">
+                    <button role="button" id="get_mobile_code" class="btn btn-default" data-toggle="modal" data-target="#id_modal_register_vercode">获取验证码</button>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="vercode" name="vercode" placeholder="输入验证码" value="" data-error="验证码不能为空！" required> 
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <input type="checkbox" id="prorocol" name="prorocol" checked="checked">&nbsp;&nbsp;阅读并接受<a href="#" target="_blank"><u style="color:red;">&nbsp;《青果乐园用户协议》</u></a>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">提交注册</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!--<div class="panel-footer">Panel footer</div>-->
+          </div>
+        </div>
+      </div>
+    </div>  
+  </section>
+</main>
+<!-- footer -->
+<footer class="footer pv-2x text-center">
+  <div class="container">
+    <p class="text-muted">Copyright ©2015-2020 青果乐园版权所有</p>
+  </div>
+</footer>
+<!-- jQuery 2.2.0 -->
+<script src="{$resource_basic}plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="{$resource_basic}bootstrap/js/bootstrap.min.js"></script>
+<!-- bootstrap-validator -->
+<script src="{$resource_basic}plugins/bootstrap-validator/validator.min.js"></script>
+<script>
+	$(function(){
+		$("#get_mobile_code").click(function(){
+			var mobile = $("#mobile").val();
+			var img_code = $("#img_code").val();
+			
+			//判断手机号码的正确性
+			if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(mobile)))
+			{
+			  alert('手机号码有误，请检查');
+			  return false;
+			  
+			}
+			else
+				{
+				console.log("shouji ok");
+				}
+			
+			//判断图形验证码的长度
+			if(img_code.lengt===0)
+			{
+				alert('验证码输入有误，请检查');
+				return false;
+			}
+			
+			//ajax 请求去验证，验证码通过下发手机验证码
+			$.ajax({ 
+                type: 'GET', 
+                url: '{:U("Platform/Index/apply_code_for_mobile")}', 
+                dataType: 'json', 
+                data:"img_code="+img_code+"&mobile="+mobile,
+                cache: false, 
+                error: function(){ 
+                    return false; 
+                }, 
+                success:function(json){ 
+                	// 判断反馈内容 
+                	if(json.err===0)
+               		{
+                		alert("验证码已下发，请留意手机信息");
+               		}
+                	else
+               		{
+               			alert(json.msg);
+               		}
+					
+                } 
+            });
+			
+		});
+		
+		//刷新图片
+		$("#refresh_img_code").click(function(){
+			$(this).attr("src","{:U("Platform/Index/get_verify_image")}");
+		});
+		
+	});
+</script>
+</body>
+</html>

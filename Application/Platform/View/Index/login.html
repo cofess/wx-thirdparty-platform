@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>后台登录-微信公众号管理平台</title>
+  <title>登录-青果乐园 SaaS平台</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -16,9 +12,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{$resource_basic}font-awesome/css/font-awesome.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{$resource_basic}dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="{$resource_basic}dist/css/skins/skin-blue-light.min.css">
+  <link rel="stylesheet" href="{$resource_basic}dist/css/common.css">
   <link rel="stylesheet" href="{$resource_basic}plugins/iCheck/square/blue.css">
-
+  <link rel="stylesheet" href="{$resource_basic}dist/css/page/page-login.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -26,70 +22,151 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="../../index2.html"><b>微信</b>公众号管理平台</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">管理员登录</p>
-
-    <form action="{:U('Platform/Index/dashboard')}" method="post">
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="用户名">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+<body class="login-page">
+<!-- header -->
+<header class="bt b-sm b-primary clearfix" id="top" role="banner">
+  <nav class="navbar navbar-default b-no mb-no">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">青果乐园 SaaS平台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://mp.weixin.qq.com/" target="_blank">微信公众平台</a></li>
+            <li><a href="#">平台介绍</a></li>
+            <li><a href="#">使用帮助</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="密码">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </nav>
+</header>
+<!-- main -->
+<main class="main">
+  <section class="relative">
+    <div class="swiper-container banner">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/banner-1.jpg')">
+          <!--<img data-src="{$resource_basic}dist/img/login/banner-1.jpg" class="swiper-lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>-->
+        </div>
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/banner-2.jpg')">
+          <!--<img data-src="{$resource_basic}dist/img/login/banner-2.jpg" class="swiper-lazy">
+          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>-->
+        </div>
       </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> 记住
-            </label>
+      <div class="banner-pagination swiper-pagination swiper-pagination-white"></div>
+    </div>
+    <!-- login-box -->
+    <div class="login-box">
+      <div class="login-box-body">
+        <p class="text-muted mv-2x">建议使用谷歌或360浏览器</p>
+        <form action="{:U('login')}" method="post" id='myform'>
+          <div class="form-group has-feedback">
+            <input type="text" class="form-control" name="mobile" placeholder="手机号码">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control" name="password" placeholder="输入密码">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+                <label><input type="checkbox"> 记住账户信息</label>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-6 text-right">
+              <a href="#">忘记密码？</a>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+        <div class="text-center mv-1x">
+          <a href="#" class="btn btn-primary btn-block btn-flat btn-submit">立即登录</a>
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
-        </div>
-        <!-- /.col -->
+        <!-- /.social-auth-links -->
       </div>
-    </form>
-
-    <!--<div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div>-->
-    <!-- /.social-auth-links -->
-
-    <!--<a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a>-->
-
+      <!-- /.login-box-body -->
+      <div class="login-box-footer">
+        <a href="#" class="btn btn-danger btn-block btn-lg btn-flat">立即注册，免费体验6个月</a>
+      </div>
+    </div>
+    <!-- /.login-box -->
+  </section>
+<!--   <section class="pv-5x bg-white clearfix">
+    <h3 class="text-center">成功案例</h3>
+    Swiper
+    <div class="swiper-container coverbanner">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/case-5-1.jpg')"></div>
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/case-6-1.jpg')"></div>
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/case-7-1.jpg')"></div>
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/case-8-1.jpg')"></div>
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/case-9-1.jpg')"></div>
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/case-10-1.jpg')"></div>
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/case-11-1.jpg')"></div>
+        <div class="swiper-slide" style="background-image:url('{$resource_basic}dist/img/login/case-12-1.jpg')"></div>
+      </div>
+      Add Pagination
+      <div class="coverbanner-pagination swiper-pagination"></div>
+    </div>
+  </section> -->
+</main>
+<!-- footer -->
+<footer class="footer pv-2x text-center">
+  <div class="container">
+    <p class="text-muted">Copyright ©2015-2020 青果乐园版权所有</p>
   </div>
-  <!-- /.login-box-body -->
-</div>
-<!-- /.login-box -->
-
+</footer>
 <!-- jQuery 2.2.0 -->
 <script src="{$resource_basic}plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{$resource_basic}bootstrap/js/bootstrap.min.js"></script>
-<!-- iCheck -->
-<script src="{$resource_basic}plugins/iCheck/icheck.min.js"></script>
+<!-- Swiper JS -->
+<script src="{$resource_basic}plugins/swiper/swiper.min.js"></script>
+<!-- Initialize Swiper -->
 <script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
+
+	$(function(){
+		$(".btn-submit").click(function(){
+			$("#myform").submit();
+		});
+	});
+  var banner = new Swiper('.banner', {
+    height: 500,//你的slide高度
+    autoHeight: false, //高度随内容变化
+    nextButton: '.banner-button-next',
+    prevButton: '.banner-button-prev',
+    pagination: '.banner-pagination',
+    paginationClickable: true,
+    // Disable preloading of all images
+    preloadImages: false,
+    // Enable lazy loading
+    lazyLoading: true,
+    autoplay: 2500,
+    autoplayDisableOnInteraction: false
+  });
+
+  var coverbanner = new Swiper('.coverbanner', {
+    pagination: '.coverbanner-pagination',
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loop : true,
+    spaceBetween: 50,
+    coverflow: {
+      rotate: 15,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows : true
+    }
   });
 </script>
 </body>

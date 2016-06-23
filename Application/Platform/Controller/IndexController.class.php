@@ -13,15 +13,19 @@ class IndexController extends CommonController {
     public function dashboard(){
     	$this->display();
     }
+    /*
+     * 注册页面
+     */
+    public function signup() {
+		$this->display();        
+    }	
     
     
     /*
      * 登录页面
      */
     public function login() {
-        session("member",time());
-        
-        redirect(U("dashboard"));
+        $this->display();
     }
     /*
      * 注销页面
