@@ -1,0 +1,281 @@
+<include file="Common/header" />
+<include file="Common/sidebar" />
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>Page Header <small>Optional description</small></h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+			<li class="active">Here</li>
+		</ol>
+	</section>
+
+	<!-- Main content -->
+	<section class="content">
+		<!-- Panel default -->
+		<div class="panel panel-default smkPanel">
+			<div class="panel-heading">
+				<h3 class="panel-title">单页面模版</h3>
+			</div>
+			<div class="panel-body">
+				<div class="callout callout-info">
+          <i class="fa fa-smile-o fa-fw"></i>单页面模版，适合公司简介、团队介绍、公司理念、荣誉等内容。
+        </div>
+        <!-- row -->
+        <div class="row">
+          <div class="col-md-4">
+            <!-- devices iphone -->
+            <div class="cd-iphone-6 cd-rosegold" style="margin:0 auto">
+              <div class="cd-body">
+                <div class="cd-sound"></div>
+                <div class="cd-sleep"></div>
+                <div class="cd-camera"></div>
+                <div class="cd-ear"></div>
+                <div class="cd-home"></div>
+                <div class="cd-screen">
+                  <div class="p-1x">
+                    内容
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /devices iphone -->
+          </div>
+          <div class="col-md-8">
+            <div class="panel panel-default with-nav-tabs">               
+              <div class="panel-heading clearfix">
+                <h3 class="panel-title pull-left">内容</h3>
+                <ul class="nav nav-tabs pull-left">
+                  <li class="active"><a href="#customers1" data-toggle="tab">内容编辑</a></li>
+                  <li><a href="#customers2" data-toggle="tab">历史素材</a></li>
+                </ul>
+              </div>
+              <div class="panel-body">
+                <div class="tab-content">
+                  <!-- 内容编辑 -->
+                  <div class="tab-pane active" id="customers1">
+                    <!-- panel -->
+                    <form class="form-horizontal interdependencies" data-toggle="validator" role="form" method="post">
+                    <div class="panel panel-default r-no b-no pull-out">
+                      <div class="panel-body">
+                        <!-- panel -->
+                        <div class="panel panel-default r-no b-no pull-out">
+                          <div class="panel-body">
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <label>标题<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="title" data-toggle="tooltip" data-placement="bottom" placeholder="请输入分享标题" data-original-title="必填项" data-error="标题不能为空，请输入标题！" required>
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <label>作者<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="author" data-toggle="tooltip" data-placement="bottom" placeholder="请输入作者" data-original-title="必填项" data-error="作者不能为空，请输入作者！" required>
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <div class="help-block with-errors"></div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <label>日期</label>
+                                <div class="input-group date">
+                                  <input type="text" class="form-control" data-provide="datepicker" name="pulish_date" placeholder="选择日期">
+                                  <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                <label>正文内容</label>
+                                <!-- 加载编辑器的容器 -->
+                                <script id="container" name="content" type="text/plain" style="width: 100%;height: 250px;">
+                                  这里写你的正文内容
+                                </script>
+                                <!--<textarea class="form-control" rows="8" id="content" name="content" placeholder="正文内容"></textarea>-->
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /panel-body -->
+                        </div>
+                        <!-- /panel -->                        
+                        <!-- panel -->
+                        <div class="panel panel-default r-no b-no pull-out">
+                          <div class="panel-heading">
+                            <h3 class="panel-title">您希望本篇内容在微信中的分享样式</h3>
+                          </div>
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-md-2">
+                                <!--<label>缩略图</label>-->
+                                <label class="dropimage m-1x" data-toggle="tooltip" data-placement="bottom" data-original-title="点击上传图片">
+                                  <input type="file">
+                                </label>
+                              </div>
+                              <div class="col-md-10">
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">标题<span class="text-danger">*</span></label>
+                                  <div class="col-md-10">
+                                    <input type="text" class="form-control" id="share_title" name="share_title" data-toggle="tooltip" data-placement="bottom" placeholder="请输入分享标题" data-original-title="必填项" data-error="标题不能为空，请输入标题！" required>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <div class="help-block with-errors"></div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label">描述</label>
+                                  <div class="col-md-10">
+                                    <textarea class="form-control" rows="3" id="share_desc" name="share_desc" placeholder="请输入您想要的简介（微信规则，分享到朋友圈时将不显示）"></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /panel-body -->
+                        </div>
+                        <!-- /panel -->
+                        <!-- panel -->
+                        <div class="panel panel-default r-no b-no pull-out">
+                          <div class="panel-heading">
+                            <h3 class="panel-title">菜单权限</h3>
+                          </div>
+                          <div class="panel-body">
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label">菜单权限<span class="text-danger">*</span></label>
+                              <div class="col-md-10">
+                                <select class="form-control selectpicker">
+                                  <option value="">- 请选择 -</option>
+                                  <option value="1">对所有人公开</option>
+                                  <option value="2">注册及所有产品客户可见</option>
+                                  <option value="3">所有产品客户可见</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /panel-body -->
+                        </div>
+                        <!-- /panel -->
+                      </div>
+                      <!-- /panel-body -->
+                      <div class="panel-footer">
+                        <a type="button" class="btn btn-default" href="{:U('Platform/Website/menu')}">返回</a>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                        <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" data-original-title="发布后本篇内容将在您的微信菜单页面内更新展示，如需微信推送请至群发消息中选择该消息后进行推送。">发布<i class="fa fa-question-circle fa-fw"></i></button>
+                        <button type="submit" class="btn btn-danger">删除内容</button>
+                      </div>
+                    </div>
+                    </form>
+                  </div> 
+                  <!-- 历史素材 -->
+                  <div class="tab-pane" id="customers2">
+                    <!-- toolbar -->
+                    <div id="toolbar6" class="btn-group pull-left">
+                      <button type="button" class="btn btn-default" id="syncWeChatNews" data-loading-text="正在读取" data-complete-text="读取成功"><i class="fa fa-refresh fa-fw icon-refresh"></i>读取微信图文素材</button>
+                    </div>
+                    <!-- table -->
+                    <table id="bootstrapTable5" class="table bootstrapTable" 
+                      data-toolbar="#toolbar" 
+                      data-toggle="table" 
+                      data-search="true" 
+                      data-show-refresh="true" 
+                      data-show-toggle="true" 
+                      data-show-columns="true" 
+                      data-page-list="[15, 25, 50, 100, ALL]" 
+                      data-sortable="true"
+                      data-sort-name="name"
+                      data-sort-order="desc"
+                      data-sort-class="custom-sort"
+                      data-order="asc" 
+                      data-click-to-select="true" 
+                      data-pagination="true"
+                      data-mobile-responsive="true"
+                      data-cookie="true"
+                      data-cookie-id-table="bootstrapTable" 
+                      data-click-to-select="true"              
+                      data-show-export="true"
+                      data-id-field="id"
+                      data-locale="zh-CN">
+                      <thead>
+                        <tr>
+                          <th data-field="state" data-checkbox="true"></th>
+                          <th data-sortable="true" data-field="id">序号</th>
+                          <th data-sortable="true" data-field="name">标题</th>
+                          <th data-sortable="true" data-field="author">作者</th>
+                          <th data-sortable="true" data-field="ctime">创作日期</th>
+                          <th>操作</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-field="state" data-checkbox="true"></td>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>
+                            <a class="replace" href="javascript:void(0)" title="替换"><i class="fa fa-plus fa-fw"></i></a>
+                            <a class="remove" href="javascript:void(0)" title="删除"><i class="fa fa-trash fa-fw"></i></a>
+                            <a class="copy" href="javascript:void(0)" title="复制"><i class="fa fa-copy fa-fw"></i></a>
+                          </td>
+                        </tr>                
+                      </tbody>
+                    </table>               
+                  </div>
+                </div>
+              </div>                
+            </div>
+          </div>
+        </div>
+        <!-- /row -->
+			</div>
+		</div>	
+	</section>
+	<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<include file="Common/footer" />
+<!-- footer-script -->
+<include file="Common/footer-script" />
+<!--bootstrap table -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="{$resource_basic}plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/cookie/bootstrap-table-cookie.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/export/tableExport.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/export/bootstrap-table-export.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="{$resource_basic}plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<!-- bootstrap-validator -->
+<script src="{$resource_basic}plugins/bootstrap-validator/validator.min.js"></script>
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="{$resource_basic}plugins/datepicker/datepicker3.css">
+<script src="{$resource_basic}plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- umeditor -->
+<script type="text/javascript" src="__PUBLIC__/umeditor/umeditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/umeditor/umeditor.js"></script>
+<script type="text/javascript">
+(function($){
+  window.um = UM.getEditor('container', {
+    /* 传入配置参数,可配参数列表看umeditor.config.js */
+    //toolbar: ['undo redo | bold italic underline']
+  });
+})(jQuery);
+(function($){
+  // Dropimage handler
+  [].forEach.call(document.querySelectorAll('.dropimage'), function(img){
+    img.onchange = function(e){
+      var inputfile = this, reader = new FileReader();
+      reader.onloadend = function(){
+        inputfile.style['background-image'] = 'url('+reader.result+')';
+        }
+      reader.readAsDataURL(e.target.files[0]);
+      }
+    });
+})(jQuery);
+</script>
+</body>
+</html>

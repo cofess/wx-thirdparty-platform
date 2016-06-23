@@ -1,0 +1,357 @@
+<include file="Common/header" />
+<include file="Common/sidebar" />
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Page Header
+        <small>Optional description</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="panel panel-default with-nav-tabs smkPanel">               
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title pull-left">粉丝统计</h3>
+          <ul class="nav nav-tabs pull-left">
+            <li class="active"><a href="#statistics-trend" data-toggle="tab">统计图表</a></li>
+            <li><a href="#statistics-detail" data-toggle="tab">详细数据</a></li>
+          </ul>
+        </div>
+        <div class="panel-body">
+          <div class="tab-content">
+            <div class="tab-pane active" id="statistics-trend">
+              <!-- Small boxes (Stat box) -->
+              <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                  <!-- small box -->
+                  <div class="small-box bg-aqua">
+                    <div class="inner">
+                      <h3>150</h3>
+                      <p>New Orders</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fa fa-cart-plus"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                  <!-- small box -->
+                  <div class="small-box bg-green">
+                    <div class="inner">
+                      <h3>53<sup style="font-size: 20px">%</sup></h3>
+                      <p>Bounce Rate</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fa fa-comments"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                  <!-- small box -->
+                  <div class="small-box bg-yellow">
+                    <div class="inner">
+                      <h3>44</h3>
+                      <p>User Registrations</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fa fa-user"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                  <!-- small box -->
+                  <div class="small-box bg-red">
+                    <div class="inner">
+                      <h3>65</h3>
+                      <p>Unique Visitors</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fa fa-heart"></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- ./col -->
+              </div>
+              <!-- /.row -->            
+              <div class="chart">
+                <canvas id="lineChart" style="height:250px"></canvas>
+              </div>
+            </div>
+            <div class="tab-pane" id="statistics-detail">
+              <!-- table -->
+              <table id="bootstrapTable" class="table bootstrapTable" 
+                data-toolbar="#toolbar" 
+                data-toggle="table" 
+                data-search="true" 
+                data-show-refresh="true" 
+                data-show-toggle="true" 
+                data-show-columns="true" 
+                data-page-list="[15, 25, 50, 100, ALL]" 
+                data-sortable="true"
+                data-sort-name="name"
+                data-sort-order="desc"
+                data-sort-class="custom-sort"
+                data-order="asc" 
+                data-click-to-select="true" 
+                data-pagination="true"
+                data-mobile-responsive="true"
+                data-cookie="true"
+                data-cookie-id-table="bootstrapTable"               
+                data-show-export="true"
+                data-id-field="id"
+                data-locale="zh-CN">
+                <thead>
+                  <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-sortable="true" data-field="id">编号</th>
+                    <th data-sortable="true" data-field="name">公众号名称</th>
+                    <th data-sortable="true" data-field="type">公众号类型</th>
+                    <th data-sortable="true" data-field="info">认证信息</th>
+                    <th data-sortable="true" data-field="weixin">微信号</th>
+                    <th data-sortable="true" data-field="status">授权状态</th>
+                    <th data-sortable="true" data-field="group">分组</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>1</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>2</td>
+                    <td>multiple-select</td>
+                    <td>288</td>
+                    <td>150</td>
+                    <td>A jQuery plugin to select multiple elements with checkboxes :)</td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>3</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>1</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>2</td>
+                    <td>multiple-select</td>
+                    <td>288</td>
+                    <td>150</td>
+                    <td>A jQuery plugin to select multiple elements with checkboxes :)</td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>3</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>1</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>2</td>
+                    <td>multiple-select</td>
+                    <td>288</td>
+                    <td>150</td>
+                    <td>A jQuery plugin to select multiple elements with checkboxes :)</td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>3</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>1</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>2</td>
+                    <td>multiple-select</td>
+                    <td>288</td>
+                    <td>150</td>
+                    <td>A jQuery plugin to select multiple elements with checkboxes :)</td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>3</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>1</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>2</td>
+                    <td>multiple-select</td>
+                    <td>288</td>
+                    <td>150</td>
+                    <td>A jQuery plugin to select multiple elements with checkboxes :)</td>
+                  </tr>
+                  <tr>
+                    <td data-field="state" data-checkbox="true"></td>
+                    <td>3</td>
+                    <td>bootstrap-table</td>
+                    <td>526</td>
+                    <td>122</td>
+                    <td>An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) </td>
+                  </tr>                                                                                                                                          
+                </tbody>
+              </table>
+              <!-- /table -->
+            </div>
+          </div>
+        </div>                
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<include file="Common/footer" /> 
+<!--bootstrap table -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="{$resource_basic}plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/cookie/bootstrap-table-cookie.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/export/tableExport.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/export/bootstrap-table-export.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="{$resource_basic}plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<!-- ChartJS 1.0.1 -->
+<script src="{$resource_basic}plugins/chartjs/Chart.min.js"></script>
+<!-- page script -->
+<script>
+var ctx = document.getElementById("lineChart").getContext("2d");
+
+const colors = {
+  green: {
+    fill: '#e0eadf',
+    stroke: '#5eb84d',
+  },
+  lightBlue: {
+    stroke: '#6fccdd',
+  },
+  darkBlue: {
+    fill: '#92bed2',
+    stroke: '#3282bf',
+  },
+  purple: {
+    fill: '#8fa8c8',
+    stroke: '#75539e',
+  },
+};
+
+const loggedIn = [26, 36, 42, 38, 40, 30, 12];
+const available = [34, 44, 33, 24, 25, 28, 25];
+const availableForExisting = [16, 13, 25, 33, 40, 33, 45];
+const unavailable = [5, 9, 10, 9, 18, 19, 20];
+const xData = [13, 14, 15, 16, 17, 18, 19];
+
+const myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: xData,
+    datasets: [{
+      label: "Unavailable",
+      fill: true,
+      backgroundColor: colors.purple.fill,
+      pointBackgroundColor: colors.purple.stroke,
+      borderColor: colors.purple.stroke,
+      pointHighlightStroke: colors.purple.stroke,
+      borderCapStyle: 'butt',
+      data: unavailable,
+
+    }, {
+      label: "Available for Existing",
+      fill: true,
+      backgroundColor: colors.darkBlue.fill,
+      pointBackgroundColor: colors.darkBlue.stroke,
+      borderColor: colors.darkBlue.stroke,
+      pointHighlightStroke: colors.darkBlue.stroke,
+      borderCapStyle: 'butt',
+      data: availableForExisting,
+    }, {
+      label: "Available",
+      fill: true,
+      backgroundColor: colors.green.fill,
+      pointBackgroundColor: colors.lightBlue.stroke,
+      borderColor: colors.lightBlue.stroke,
+      pointHighlightStroke: colors.lightBlue.stroke,
+      borderCapStyle: 'butt',
+      data: available,
+    }, {
+      label: "Logged In",
+      fill: true,
+      backgroundColor: colors.green.fill,
+      pointBackgroundColor: colors.green.stroke,
+      borderColor: colors.green.stroke,
+      pointHighlightStroke: colors.green.stroke,
+      data: loggedIn,
+    }]
+  },
+  options: {
+    responsive: true,
+    // Can't just just `stacked: true` like the docs say
+    scales: {
+      yAxes: [{
+        stacked: true,
+      }]
+    },
+    animation: {
+      duration: 750,
+    },
+  }
+});
+</script>
+</body>
+</html>

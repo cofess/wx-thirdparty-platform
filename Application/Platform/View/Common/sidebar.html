@@ -1,0 +1,92 @@
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- search form (Optional) -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <li class="header">HEADER</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="{:U('Platform/Index/dashboard')}"><i class="fa fa-dashboard"></i> <span>仪表盘</span></a></li>
+        <li><a href="{:U('Platform/Account/profile')}"><i class="fa fa-key"></i> <span>账户管理</span></a></li>
+        <li class="treeview">
+          <a href="{:U('Platform/Mp/list')}"><i class="fa fa-weixin"></i> <span>公众号管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a href="{:U('Platform/Mp/auth')}">公众号授权</a></li>
+            <li><a href="{:U('Platform/Mp/list')}">我的公众号</a></li>
+            <!--<li><a href="{:U('Platform/Mp/group')}">公众号分组</a></li>-->
+            <!--<li><a href="{:U('Platform/Mp/following')}">关注的公众号</a></li>-->
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="{:U('Platform/Website/menu')}"><i class="fa fa-sitemap"></i> <span>微官网</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a href="{:U('Platform/Website/menu')}">菜单设置</a></li>
+            <li><a href="{:U('Platform/Website/page')}">自定义页面</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="{:U('Platform/Content/post')}"><i class="fa fa-newspaper-o"></i> <span>内容管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a href="{:U('Platform/Content/post')}">图文</a></li>
+            <li><a href="{:U('Platform/Content/product')}">产品</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="{:U('Platform/Groupmsg/list')}"><i class="fa fa-inbox"></i> <span>群发消息</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a href="{:U('Platform/Groupmsg/add')}">新建群发</a></li>
+            <li><a href="{:U('Platform/Groupmsg/list')}">发送列表</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="{:U('Platform/Reply/default')}">
+            <i class="fa fa-commenting"></i> <span>回复管理</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{:U('Platform/Reply/default')}">默认回复</a></li>
+            <li>
+              <a href="{:U('Platform/Reply/keyword_list')}">自定义回复<i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="{:U('Platform/Reply/add_keyword')}">关键词添加</a></li>
+                <li><a href="{:U('Platform/Reply/keyword_list')}">关键词列表</a></li>
+                <li><a href="{:U('Platform/Reply/keyword_group')}">关键词分组</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="{:U('Platform/Fans/list')}"><i class="fa fa-users"></i> <span>粉丝管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a href="{:U('Platform/Fans/list')}">我的粉丝</a></li>
+            <li><a href="{:U('Platform/Fans/group')}">粉丝分组</a></li>
+          </ul>
+        </li>
+        <li><a href="{:U('Platform/Source/list')}"><i class="fa fa-dropbox"></i> <span>素材管理</span></a></li>
+        <li class="treeview">
+          <a href="{:U('Platform/Statistics/members')}"><i class="fa fa-pie-chart"></i> <span>统计数据</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a href="{:U('Platform/Statistics/fans')}">粉丝统计</a></li>
+            <li><a href="{:U('Platform/Statistics/content')}">内容分析</a></li>
+          </ul>
+        </li>
+        <li><a href="{:U('Platform/System/setting')}"><i class="fa fa-windows"></i> <span>系统设置</span></a></li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside> 

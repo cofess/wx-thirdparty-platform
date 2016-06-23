@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>预览-微信公众号管理平台</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="{$resource_basic}bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{$resource_basic}font-awesome/css/font-awesome.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{$resource_basic}dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="{$resource_basic}dist/css/common.css">
+  <link rel="stylesheet" href="{$resource_basic}dist/css/devices.min.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="hold-transition preview-page">
+  <header class="main-header bg-black bg-inverse clearfix">
+    <div class="container pv-1x">
+      <a href="{:U('Platform/Index/dashboard')}"><i class="fa fa-chevron-left fa-fw"></i></a>
+      <span>预览</span>
+    </div>
+  </header> 
+  <!-- Content Wrapper. Contains page content -->
+  <div class="main">
+    <!-- Main content -->
+    <section class="content bg pv-4x">
+      <!-- Your Page Content Here -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <!-- devices iphone -->
+            <div class="cd-iphone-6 cd-rosegold" style="margin:0 auto">
+              <div class="cd-body">
+                <div class="cd-sound"></div>
+                <div class="cd-sleep"></div>
+                <div class="cd-camera"></div>
+                <div class="cd-ear"></div>
+                <div class="cd-home"></div>
+                <div class="cd-screen">
+                </div>
+              </div>
+            </div>
+            <!-- /devices iphone -->
+          </div>
+          <div class="col-md-5">
+            <div class="mt-5x">
+              <h3>手机扫码访问页面</h3>
+              <div id="qrcode"></div>
+              <p>http://mp.com/index.php/Platform/Website/preview.html</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <!-- Main Footer -->
+  <footer class="footer pv-2x">
+    <div class="container">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2015 <a href="#">Company</a>.</strong> All rights reserved.
+    </div>
+  </footer>
+<!-- jQuery 2.2.0 -->
+<script src="{$resource_basic}plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="{$resource_basic}bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery qecode -->
+<script src="{$resource_basic}plugins/qrcode/jquery-qrcode.min.js"></script>
+<script>
+jQuery(window).load(function() {
+  jQuery("#qrcode").qrcode({
+    mode: 0,
+    //image: jQuery('#qrcode_img')[0],
+    text: "http://zhw-island.com/jquery-qrcode/",
+  });
+});
+</script>
+</body>
+</html>

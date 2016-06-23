@@ -1,0 +1,15 @@
+/**
+ * alert
+ */
+.alert-msg{position: fixed;left:0;right:0;bottom: 0;z-index: 999;display: none;}
+
+/*
+ * 分页 page 配置
+ */
+.box-footer .current{
+	padding:10px;
+}
+
+.box-footer a{
+	padding:10px;
+}

@@ -1,0 +1,584 @@
+<include file="Common/header" />
+<include file="Common/sidebar" />
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>Page Header<small>Optional description</small></h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Panel default -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <label class="pt-0x">在这里定义您的微信菜单，并为每个菜单配置相对应的微官网页面或外部链接。</label>
+          <div class="pull-right" role="group" aria-label="...">
+            <a class="btn btn-primary" href="{:U('Platform/Website/preview')}" target="_blank"><i class="fa fa-send-o fa-fw"></i> 预览</a>
+            <a class="btn btn-success"><i class="fa fa-rotate-right fa-fw"></i> 同步到微信</a>
+          </div>
+        </div>
+      </div>
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-6">
+          <!-- panle -->
+          <div class="panel panel-default smkPanel">
+            <div class="panel-heading">
+              <h3 class="panel-title">菜单项设置</h3>
+            </div>
+            <div class="panel-body">
+              <div class="callout callout-info">
+                <i class="fa fa-smile-o fa-fw"></i>可创建最多3个一级菜单，每个一级菜单下可创建最多5个二级菜单。
+              </div>
+              <div class="dd nestable" id="nestable">
+                <ol class="dd-list nestable-list"></ol>
+              </div>
+            </div>
+            <!-- /panel body -->
+            <div class="panel-footer">
+              <button type="button" class="btn btn-default" id="add-mainMenu"><i class="fa fa-plus"></i> 添加主菜单</button>
+              <button type="button" class="btn btn-success" id="save-mpMenu"><i class="fa fa-save"></i> 保存</button>
+            </div>
+          </div>
+          <!-- /panel -->
+        </div>
+        <div class="col-md-6">
+          <!-- panle -->
+          <div class="panel panel-default smkPanel">
+            <div class="panel-heading">
+              <h3 class="panel-title">菜单功能设置</h3>
+            </div>
+            <div class="panel-body">
+              <div class="callout callout-info">
+                <i class="fa fa-smile-o fa-fw"></i>如果您的微信自定义菜单配置已授权给我们，请注意不要在微信公众平台中配置，否则会导致菜单冲突。
+              </div>
+              <!-- interdependencies -->
+              <form class="form-menu-setup form-horizontal interdependencies" style="display: none">
+                <input type="hidden" id="menu-id" name="menu-id">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">点击菜单触发</label>
+                    <div class="col-sm-10">
+                      <select class="form-control" data-depend-id="menu_type">
+                        <option value="" >请选择触发类型</option>
+                        <option value="item" >指定项目</option>
+                        <option value="link" >指定链接</option>
+                        <option value="reply" >文本回复</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group hidden" data-controller="menu_type" data-condition="any" data-value="item">
+                  <div class="col-sm-12 text-center mv-2x">
+                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#itemModal"><i class="fa fa-plus"></i> 选择指定项目</a>
+                  </div>
+                </div>
+                <div class="form-group hidden" data-controller="menu_type" data-condition="any" data-value="link">
+                  <label class="col-sm-2 control-label">指定链接</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="请输入指定链接">
+                  </div>
+                </div>
+                <div class="form-group hidden" data-controller="menu_type" data-condition="any" data-value="reply">
+                  <label class="col-sm-2 control-label">文本回复内容</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" rows="10" placeholder="文本回复内容最多支持600个字符，超过部分将会自动截取。" aria-describedby="点击菜单回复内容"></textarea>
+                  </div>
+                </div>
+              </form>
+              <!-- interdependencies -->
+            </div>
+            <div class="panel-footer">
+              <button type="button" class="btn btn-success"><i class="fa fa-save"></i> 保存</button>
+            </div>
+          </div>
+          <!-- /panel -->        
+        </div>
+      </div>
+      <!-- /row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<include file="Common/footer" />
+<!-- menu Modal -->
+<div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="添加菜单">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="menuModalLabel">添加菜单</h4>
+      </div>
+      <form data-toggle="validator" role="form" id="menuForm">
+        <div class="modal-body">
+          <input type="hidden" id="parent-menu" name="parent-menu" >
+          <div class="form-group has-feedback">
+            <div class="input-group">
+              <span class="input-group-addon">菜单</span>
+              <input type="text" maxlength="15" class="form-control" id="menu-name" name="menu-name" placeholder="请输入菜单名称" data-error="菜单名称不能为空，请输入菜单名称！" required>
+            </div>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary" id="appendnestable">确认</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- /menu Modal -->
+<!-- menuEdit Modal -->
+<div class="modal fade" id="menuEditModal" tabindex="-1" role="dialog" aria-labelledby="添加菜单">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="menuEditModalLabel">编辑菜单</h4>
+      </div>
+      <form data-toggle="validator" role="form" id="menuEditForm">
+        <div class="modal-body">
+          <input type="hidden" id="parent-menu" name="parent-menu" >
+          <div class="form-group has-feedback">
+            <div class="input-group">
+              <span class="input-group-addon">菜单</span>
+              <input type="text" maxlength="15" class="form-control" id="current-menu-name" name="current-menu-name" placeholder="请输入菜单名称" data-error="菜单名称不能为空，请输入菜单名称！" required>
+            </div>
+            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary" id="appendnestable">确认</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- /menu Modal -->
+<!-- item Modal -->
+<div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="选择指定项目">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="itemModalLabel">请选择符合您需求的模版组</h4>
+      </div>
+      <form class="form-horizontal" id="chosen_menu_template" enctype="multipart/form-data" method="post" action="{:U('Platform/Website/chosen_menu_template')}">
+        <div class="modal-body">
+          <input type="hidden" name="menu-id">
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="radio">
+                  <label> <input type="radio" name="templateType" value="1">
+                    单页面模版，适合公司简介、团队介绍、公司理念、荣誉等内容
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="radio">
+                  <label> <input type="radio" name="templateType" value="2">
+                    列表页模版，适合公司观点、新闻动态、产品路演等具有历史时序性的内容
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="radio">
+                  <label> <input type="radio" name="templateType" value="3">
+                    产品模版，包括产品系列、净值发布、产品要素、产品公告等子页面
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="radio">
+                  <label> <input type="radio" name="templateType" value="4">
+                    注册与绑定模版，注：必配，如需在微信菜单中配“我的账户”需选两次该模版
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="radio">
+                  <label> <input type="radio" name="templateType" value="5"> 在线预约页面，客户预约模版，注：必配
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="radio">
+                  <label> <input type="radio" name="templateType" value="6"> 微网首页模版，适合进行导航展示
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="radio">
+                  <label> <input type="radio" name="templateType" value="7"> 产品路演预约模版配置
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <div class="radio">
+                  <label> <input type="radio" name="templateType" value="8"> 活动预约模版配置
+                  </label>
+                </div>
+              </div>
+            </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-primary btn-submit" data-dismiss="modal">确认</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- alert msg -->
+<div class="alert b-no r-no m-no alert-dismissible alert-msg text-center" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <span id="alert-msg-text"></span>
+</div>
+<!-- footer-script -->
+<include file="Common/footer-script" />
+<!-- bootstrap-validator -->
+<script src="{$resource_basic}plugins/bootstrap-validator/validator.min.js"></script>
+<script type="text/javascript">
+$('.modal').on('shown.bs.modal', function () {
+    $(this).find('form').validator('destroy').validator();
+});
+</script>
+<!-- store -->
+<script src="{$resource_basic}plugins/store/store.min.js"></script>
+<!-- jquery.interdependencies -->
+<script src="{$resource_basic}plugins/vendor/jquery.interdependencies.js"></script>
+<script type="text/javascript">
+(function($) {
+  "use strict";
+
+  function buildRuleset() {
+    // Start creating a new ruleset
+    var ruleset = $.deps.createRuleset();
+
+    var cfg = {
+      show: function( el ) {
+        el.removeClass('hidden');
+      },
+      hide: function( el ) {
+        el.addClass('hidden');
+      },
+      log: false,
+      checkTargets: false
+    };
+
+    $.deps.enable($(".interdependencies"), ruleset, cfg);
+
+    $(document).find('[data-controller]').each( function() {
+      var $this       = $(this),
+          _controller = $this.data('controller').split('|'),
+          _condition  = $this.data('condition').split('|'),
+          _value      = $this.data('value').toString().split('|'),
+          _rules      = ruleset;
+
+      $.each(_controller, function(index, element) {
+        var value     = _value[index] || '',
+        condition = _condition[index] || _condition[0];
+
+        _rules = _rules.createRule('[data-depend-id="'+ element +'"]', condition, value);
+        _rules.include($this);
+      });
+    });
+    return ruleset;
+  }
+
+  $(document).ready(function() {
+    var ruleset = buildRuleset();
+  });
+})(jQuery);
+</script>
+<!-- nestable -->
+<script src="{$resource_basic}plugins/nestable/jquery.nestable.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  // if(store.get('mp-menus')){
+  //   var obj = store.get('mp-menus');//菜单对象
+  // }else{
+  //   var obj = '[{"id":13,"content":"Item 13"},{"id":14,"content":"Item 15","children":[{"id":16,"content":"Item 16"}]}]';//菜单对象
+  // }
+
+  function buildItem(type,item) {
+    var html = "<li class='dd-item' data-content='" + item.content + "' data-id='" + item.id + "'>";
+    html += "<div class='dd-handle'>Drag</div>";
+    html += "<div class='dd-content'><span>" + item.content+"</span>";
+    if(type){
+      //一级菜单
+      html += "<div class='tools btn-group' role='group'><button class='btn btn-xs btn-default btn-flat add-subMenu'><i class='fa fa-plus'></i></button><button class='btn btn-xs btn-default btn-flat edit-Menu'><i class='fa fa-pencil'></i></button><button class='btn btn-xs btn-default btn-flat delete-Menu'><i class='fa fa-trash-o'></i></button></div>";
+    }else{
+      //二级菜单
+      html += "<div class='tools btn-group' role='group'><button class='btn btn-xs btn-default btn-flat edit-Menu'><i class='fa fa-pencil'></i></button><button class='btn btn-xs btn-default btn-flat delete-Menu'><i class='fa fa-trash-o'></i></button></div>";
+    }
+    html += "</div>"
+    if (item.children) {
+        html += "<ol class='dd-list'>";
+        $.each(item.children, function (index, sub) {
+            html += buildItem(0,sub);
+        });
+        html += "</ol>";
+    }
+    html += "</li>";
+    return html;
+  }
+
+  var obj = store.get('mp-menus');//菜单对象
+  if(obj){
+    $.each(JSON.parse(obj), function (index, item) {
+      $('#nestable .nestable-list').append(buildItem(1,item));
+    });
+  }
+
+  var updateOutput = function (e) {
+    var list = e.length ? e : $(e.target), output = list.data('output');
+    console.log(list.nestable('serialize'));
+    console.log(window.JSON.stringify(list.nestable('serialize')));
+    //本地存储菜单对象
+    store.set('mp-menus',window.JSON.stringify(list.nestable('serialize')));
+    //alert(store.get('mp-menus'));
+  };
+
+  $('#nestable').nestable({
+    group: 1,
+    maxDepth: 2,
+    threshold: 15,
+  }).on('change', updateOutput);
+});
+
+$(document).ready(function() {
+  //选中菜单
+  $(document).on("click",".dd-item",function(e) {
+    $('.dd-item').removeClass('active');
+    $("input[name='menu-id']").val($(this).attr("data-id"));
+    //$("#menu-id").val($(this).attr("data-id"));
+    $(this).addClass('active').siblings().removeClass('active');
+    if (e.stopPropagation){ 
+      e.stopPropagation();
+    } else {
+      e.cancelBubble = true;
+    } 
+  });
+
+  //添加主菜单
+  $("#add-mainMenu").click(function() {
+    $(".dd-item").removeClass('current');
+    var mainmenucount = $('#nestable .nestable-list').children('.dd-item').length;//获取主菜单数
+    if(mainmenucount<3){
+      $('#menuModal').modal('toggle');
+    } else {
+      //提示信息
+      $('.alert-msg').addClass('alert-danger');
+      $('.alert-msg #alert-msg-text').html("<i class='fa fa-frown-o fa-fw'></i>最多可创建3个一级菜单!");
+      $('.alert-msg').show();
+      setTimeout(function(){
+        $('.alert-msg').hide();
+        $('.alert-msg').removeClass('alert-danger');
+      },1000); 
+    }
+  });
+
+  //添加二级菜单
+  $(document).on("click",".add-subMenu",function() {
+    //alert($(this).closest('.dd-item').attr("data-id"));
+    var submenucount = $(this).closest('.dd-item').find('.dd-list').children('.dd-item').length;//获取二级菜单数
+    if(submenucount<5){
+      $(this).closest('.dd-item').addClass('current').siblings().removeClass('current');
+      $("#parent-menu").val($(this).closest('.dd-item').attr("data-id"));
+      $('#menuModal').modal('toggle');
+    } else {
+      //提示信息
+      $('.alert-msg').addClass('alert-danger');
+      $('.alert-msg #alert-msg-text').html("<i class='fa fa-frown-o fa-fw'></i>每个一级菜单下最多可创建5个二级菜单!");
+      $('.alert-msg').show();
+      setTimeout(function(){
+        $('.alert-msg').hide();
+        $('.alert-msg').removeClass('alert-danger');
+      },1000); 
+    }
+  });
+
+  //编辑菜单
+  $(document).on("click",".edit-Menu",function() {
+   $('#menuEditModal').modal('toggle');
+   //alert($(this).closest('.dd-content').text());
+   $('#current-menu-name').val($(this).closest('.dd-content').text());   
+  });
+
+  //删除菜单
+  $(document).on("click",".delete-Menu",function() {
+    if(window.confirm('你确定要删除该菜单吗？')){
+      var list=$(this).closest(".dd-list");
+      $(this).closest(".dd-item").remove();
+      if(list.children('.dd-item').length==0){
+        list.remove();
+      }
+      //alert(window.JSON.stringify($('#nestable').nestable('serialize')));
+      store.set('mp-menus',window.JSON.stringify($('#nestable').nestable('serialize')));
+      //提示信息
+      $('.alert-msg').addClass('alert-success');
+      $('.alert-msg #alert-msg-text').html("<i class='fa fa-smile-o fa-fw'></i>菜单删除成功");
+      $('.alert-msg').show();
+      setTimeout(function(){
+        $('.alert-msg').hide();
+        $('.alert-msg').removeClass('alert-success');
+      },1000);
+    }else{
+      return false;
+    }   
+  });
+
+  //保存菜单
+  $("#save-mpMenu").on("click",function() {
+    //alert(window.JSON.stringify($('#nestable').nestable('serialize')));
+    store.set('mp-menus',window.JSON.stringify($('#nestable').nestable('serialize')));
+
+    //提示信息
+    $('.alert-msg').addClass('alert-success');
+    $('.alert-msg #alert-msg-text').html("<i class='fa fa-smile-o fa-fw'></i>菜单更新成功");
+    $('.alert-msg').show();
+    setTimeout(function(){
+      $('.alert-msg').hide();
+      $('.alert-msg').removeClass('alert-success');
+    },1000); 
+  });
+
+  // 添加菜单（使用 jQuery 异步提交表单）
+  $('#menuForm').submit(function() {
+    if($("input[name='menu-name']").val()!=''){
+      jQuery.ajax({
+        url: "{:U('Platform/Website/menu')}",
+        data: $("input[name='menu-name']").val(),
+        type: "POST",
+        beforeSend: function(){
+
+        },
+        success: function(){
+          $('#menuModal').modal('toggle');
+          //nestable添加菜单项;
+          var nestablecount = $('#nestable .nestable-list li').length;
+          if($('#nestable .nestable-list .dd-item').hasClass('current')){
+            //添加二级菜单
+            var html="";
+            if($('#nestable .nestable-list .current').children(".dd-list").length==0){
+              html += '<ol class="dd-list">';
+            }
+            html += '<li class="dd-item" data-content="' + $("input[name='menu-name']").val() + '" data-id="' + (nestablecount + 1) + '"><div class="dd-handle">Drag</div><div class="dd-content"><span>' + $("input[name='menu-name']").val()+'</span>';
+            html += "<div class='tools btn-group' role='group'><button class='btn btn-xs btn-default btn-flat edit-Menu'><i class='fa fa-pencil'></i></button><button class='btn btn-xs btn-default btn-flat delete-Menu'><i class='fa fa-trash-o'></i></button></div>";
+            html += "</div></li>";
+            if($('#nestable .nestable-list .current').children(".dd-list").length==0){
+              html += '</ol>';              
+            }
+            if($('#nestable .nestable-list .current').children(".dd-list").length==0){
+              $('#nestable .nestable-list .current').append(html); 
+            }else{
+              $('#nestable .nestable-list .current').find(".dd-list").append(html);
+            }                      
+          }else{
+            //添加主菜单
+            var html="";
+            html += '<li class="dd-item" data-content="' + $("input[name='menu-name']").val() + '" data-id="' + (nestablecount + 1) + '"><div class="dd-handle">Drag</div><div class="dd-content"><span>' + $("input[name='menu-name']").val()+'</span>';
+            html += "<div class='tools btn-group' role='group'><button class='btn btn-xs btn-default btn-flat add-subMenu'><i class='fa fa-plus'></i></button><button class='btn btn-xs btn-default btn-flat edit-Menu'><i class='fa fa-pencil'></i></button><button class='btn btn-xs btn-default btn-flat delete-Menu'><i class='fa fa-trash-o'></i></button></div>";
+            html += "</div></li>";
+            $('#nestable .nestable-list').append(html);
+          }          
+          nestablecount++;        
+
+          //清空input
+          $("input[name='menu-name']").val("");
+
+          //alert(window.JSON.stringify($('#nestable').nestable('serialize')));
+          store.set('mp-menus',window.JSON.stringify($('#nestable').nestable('serialize')));
+
+          //提示信息
+          $('.alert-msg').addClass('alert-success');
+          $('.alert-msg #alert-msg-text').html("<i class='fa fa-smile-o fa-fw'></i>添加菜单成功");
+          $('.alert-msg').show();
+          setTimeout(function(){
+            $('.alert-msg').hide();
+            $('.alert-msg').removeClass('alert-success');
+          },1000);   
+        }
+      });
+    }
+    return false;
+  });
+
+  // 编辑菜单（使用 jQuery 异步提交表单）
+  $('#menuEditForm').submit(function() {
+    if($("input[name='current-menu-name']").val()!=''){
+      jQuery.ajax({
+        url: "{:U('Platform/Website/menu')}",
+        data: $("input[name='current-menu-name']").val(),
+        type: "POST",
+        beforeSend: function(){
+
+        },
+        success: function(){
+          $('#menuEditModal').modal('toggle');
+          $('#nestable .nestable-list .active .dd-content span').text($("input[name='current-menu-name']").val());
+          $('#nestable .nestable-list .active').attr("data-content",$("input[name='current-menu-name']").val());
+
+          //alert(window.JSON.stringify($('#nestable').nestable('serialize')));
+          store.set('mp-menus',window.JSON.stringify($('#nestable').nestable('serialize')));
+
+          //提示信息
+          $('.alert-msg').addClass('alert-success');
+          $('.alert-msg #alert-msg-text').html("<i class='fa fa-smile-o fa-fw'></i>编辑菜单成功");
+          $('.alert-msg').show();
+          setTimeout(function(){
+            $('.alert-msg').hide();
+            $('.alert-msg').removeClass('alert-success');
+          },1000); 
+        }
+      });
+    }
+    return false;    
+  });
+
+  //提交表单
+  $('#chosen_menu_template').on('click', '.btn-submit', function (e) {
+    $(this.form).submit();
+  });
+
+  //点击任何地方执行
+  $(document).click(function(){
+    if($('#nestable .nestable-list .dd-item').hasClass('active')){
+      event.stopPropagation();//阻止冒泡事件
+    }else{
+      $('.form-menu-setup').hide();
+    }
+  });
+
+  //添加二级菜单
+  $(document).on("click",".dd-item",function() {
+    $('.form-menu-setup').show();
+    event.stopPropagation();//阻止冒泡事件
+  });
+});
+</script>
+</body>
+</html>
