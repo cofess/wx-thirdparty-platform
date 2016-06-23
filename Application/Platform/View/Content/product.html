@@ -1,34 +1,159 @@
 <include file="Common/header" />
 <include file="Common/sidebar" />
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
-    </section>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->
+	<include file="Common/navigation" />
 
-    <!-- Main content -->
-    <section class="content">
+	<!-- Main content -->
+	<section class="content">
+		<!-- Panel default -->
+		<div class="panel panel-default smkPanel">
+			<div class="panel-heading">
+				<h3 class="panel-title">产品管理</h3>
+			</div>
+			<div class="panel-body">
+				<!-- toolbar -->
+				<div id="toolbar" class="btn-group">
+					<a class="btn btn-default btn-flat" href="{:U('Platform/Content/add_product')}"><i class="fa fa-plus fa-fw"></i>新增产品</a>
+					<button type="button" id="del_product" class="btn btn-default btn-flat"><i class="fa fa-trash fa-fw"></i>删除</button>
+				</div>
+				<!-- table -->
+				<table id="bootstrapTable" class="table bootstrapTable"
+					data-toolbar="#toolbar" data-toggle="table" data-search="true"
+					data-show-refresh="true" data-show-toggle="true"
+					data-show-columns="true" data-page-list="[15, 25, 50, 100, ALL]"
+					data-sortable="true" data-sort-name="name" data-sort-order="desc"
+					data-sort-class="custom-sort" data-order="asc"
+					data-click-to-select="true" data-pagination="true"
+					data-mobile-responsive="true" data-cookie="true"
+					data-cookie-id-table="bootstrapTable" data-show-export="true"
+					data-id-field="id" data-locale="zh-CN">
+					<thead>
+						<tr>
+							<th data-field="state" data-checkbox="true"></th>
+							<th data-sortable="true" data-field="id">编号</th>
+							<th data-sortable="true" data-field="name">产品名称</th>
+							<th data-sortable="true" data-field="type">权限设置</th>
+							<th data-sortable="true" data-field="info">募集状态</th>
+							<th>操作</th>
+						</tr>
+						<volist name="results" id="vo">
+						<tr>
+							<th >
+								<input type="checkbox" name="pid" class="pid_chkbox" data-id="{$vo.pid}" />
+							</th>
+							<th >{$vo.pid}</th>
+							<th >{$vo.product_name}</th>
+							<th >
+							<switch name="vo.permission">
+								<case value="1">
+									注册及所有产品客户可见
+								</case>
+								<case value="2">
+									仅购买该产品客户可见
+								</case>
+								<default />对所有人公开
+							</switch></th>
+							<th >
+							<switch name="vo.pstatus">
+								<case value="1">
+									募集中
+								</case>
+								<case value="2">
+									已经募集
+								</case>
+								<case value="3">
+									终止（产品将不显示）
+								</case>
+								<default />首发募集
+							</switch>
+							</th>
+							<th><a href="#">修改</a></th>
+						</tr>
+						</volist>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<!-- /table -->
+			</div>
+		</div>
+	</section>
+	<!-- /.content -->
+</div>
 
-      <!-- Your Page Content Here -->
+<!-- /.content-wrapper -->
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+<include file="Common/footer" />
+<!-- footer-script -->
+<include file="Common/footer-script" />
+<!--bootstrap table -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="{$resource_basic}plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/cookie/bootstrap-table-cookie.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/export/tableExport.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/export/bootstrap-table-export.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="{$resource_basic}plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
-<include file="Common/footer" />  
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
+<script>
+$(function(){
+	$("#del_product").click(function(){
+		var idStr = [];
+        $(".pid_chkbox:checked").each(function(){
+            idStr.push($(this).attr("data-id"));
+        });
+        if(idStr!=null){
+            
+            if(idStr.length==0)
+            {
+                alert("请选择要处理的产品");
+            }
+            else
+            {
+            	var r = confirm("确认删除产品？该产品下关联的客户信息也会一并删除！");
+        		
+        		if(r!=false)
+        			{
+        			
+        			//Ajax 提交信息
+	        			$.ajax({ 
+	                        type: 'POST', 
+	                        url: '{:U("del_product")}', 
+	                        dataType: 'json', 
+	                        data:"pids="+idStr,
+	                        cache: false, 
+	                        error: function(){ 
+	                            return false; 
+	                        }, 
+	                        success:function(json){ 
+	                            if(json.err===0)
+	                            	{
+	                            		window.location.reload(); //refresh this page
+	                            	}
+	                            else
+	                            	{
+	                            		alert("遇到问题，请刷新后重试");
+	                            	}
+	                             
+	
+	                        } 
+	                    });
+        			}
+        		else
+        			{
+        			
+        			}
+            }
+            
+        }
+        
+		
+		
+	});
+});
+</script>
 </body>
 </html>

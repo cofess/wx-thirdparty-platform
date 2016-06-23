@@ -16,19 +16,265 @@
     </section>
 
     <!-- Main content -->
+    <!-- Main content -->
     <section class="content">
-
-      <!-- Your Page Content Here -->
-
+      <div class="panel panel-default with-nav-tabs smkPanel">               
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title pull-left">客户管理</h3>
+          <ul class="nav nav-tabs pull-left">
+            <li class="active"><a href="#customers1" data-toggle="tab">客户信息</a></li>
+            <li><a href="#customers2" data-toggle="tab">注册客户</a></li>
+            <li><a href="#customers3" data-toggle="tab">预约客户</a></li>
+            <li><a href="#customers4" data-toggle="tab">产品路演预约客户</a></li>
+            <li><a href="#customers5" data-toggle="tab">活动预约客户</a></li>
+          </ul>
+        </div>
+        <div class="panel-body">
+          <div class="tab-content">
+            <!-- 客户信息 -->
+            <div class="tab-pane active" id="customers1">
+              <!-- toolbar -->
+              <div id="toolbar1" class="btn-group pull-left">
+                <button type="button" class="btn btn-default">
+                  <i class="fa fa-times fa-fw"></i>删除
+                </button>
+                <button type="button" class="btn btn-default btn-flat">单个新增</button>
+                <button type="button" class="btn btn-default btn-flat">批量上传</button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    产品列表选择 <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0)">所有产品客户(0)</a></li>
+                    <li role="separator" class="divider"></li></ul>
+                </div>
+              </div>
+              <!-- table -->
+              <table id="bootstrapTable" class="table bootstrapTable" 
+                data-toolbar="#toolbar" 
+                data-toggle="table" 
+                data-search="true" 
+                data-show-refresh="true" 
+                data-show-toggle="true" 
+                data-show-columns="true" 
+                data-page-list="[15, 25, 50, 100, ALL]" 
+                data-sortable="true"
+                data-sort-name="name"
+                data-sort-order="desc"
+                data-sort-class="custom-sort"
+                data-order="asc" 
+                data-click-to-select="true" 
+                data-pagination="true"
+                data-mobile-responsive="true"
+                data-cookie="true"
+                data-cookie-id-table="bootstrapTable"               
+                data-show-export="true"
+                data-id-field="id"
+                data-locale="zh-CN">
+                <thead>
+                  <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-sortable="true" data-field="id">序号</th>
+                    <th data-sortable="true" data-field="CusType">产品名称</th>
+                    <th data-sortable="true" data-field="name">客户姓名</th>
+                    <th data-sortable="true" data-field="Mobile">手机号</th>
+                    <th data-sortable="true" data-field="IDCard">证件号码</th>
+                    <th data-sortable="true" data-field="FundShare">基金份额</th>
+                    <th data-sortable="true" data-field="VIP">是否是VIP</th>
+                    <th data-sortable="true" data-field="ContractNo">合同号</th>
+                    <th data-sortable="true" data-field="Avatar">微信头像</th>
+                    <th data-sortable="true" data-field="NickName">微信昵称</th>
+                  </tr>
+                </thead>
+                <tbody>                                                                                                                                        
+                </tbody>
+              </table>
+              <!-- /table -->
+            </div>
+            <!-- 注册客户 -->
+            <div class="tab-pane" id="customers2">
+              <!-- toolbar -->
+              <div id="toolbar2" class="btn-group pull-left">
+                <button type="button" class="btn btn-default"><i class="fa fa-times fa-fw"></i>删除</button>
+              </div>
+              <!-- table -->
+              <table id="bootstrapTable" class="table bootstrapTable" 
+                data-toolbar="#toolbar" 
+                data-toggle="table" 
+                data-search="true" 
+                data-show-refresh="true" 
+                data-show-toggle="true" 
+                data-show-columns="true" 
+                data-page-list="[15, 25, 50, 100, ALL]" 
+                data-sortable="true"
+                data-sort-name="name"
+                data-sort-order="desc"
+                data-sort-class="custom-sort"
+                data-order="asc" 
+                data-click-to-select="true" 
+                data-pagination="true"
+                data-mobile-responsive="true"
+                data-cookie="true"
+                data-cookie-id-table="bootstrapTable"               
+                data-show-export="true"
+                data-id-field="id"
+                data-locale="zh-CN">
+                <thead>
+                  <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-sortable="true" data-field="id">序号</th>
+                    <th data-sortable="true" data-field="CreateTime">注册时间</th>
+                    <th data-sortable="true" data-field="name">客户姓名</th>
+                    <th data-sortable="true" data-field="Mobile">手机号</th>
+                    <th data-sortable="true" data-field="Avatar">微信头像</th>
+                    <th data-sortable="true" data-field="NickName">微信昵称</th>
+                  </tr>
+                </thead>
+                <tbody>                  
+                </tbody>
+              </table>                 
+            </div>
+            <!-- 预约客户 -->
+            <div class="tab-pane" id="customers3">
+              <!-- toolbar -->
+              <div id="toolbar3" class="btn-group pull-left">
+                <button type="button" class="btn btn-default"><i class="fa fa-times fa-fw"></i>删除</button>
+              </div>
+              <!-- table -->
+              <table id="bootstrapTable" class="table bootstrapTable" 
+                data-toolbar="#toolbar" 
+                data-toggle="table" 
+                data-search="true" 
+                data-show-refresh="true" 
+                data-show-toggle="true" 
+                data-show-columns="true" 
+                data-page-list="[15, 25, 50, 100, ALL]" 
+                data-sortable="true"
+                data-sort-name="name"
+                data-sort-order="desc"
+                data-sort-class="custom-sort"
+                data-order="asc" 
+                data-click-to-select="true" 
+                data-pagination="true"
+                data-mobile-responsive="true"
+                data-cookie="true"
+                data-cookie-id-table="bootstrapTable"               
+                data-show-export="true"
+                data-id-field="id"
+                data-locale="zh-CN">
+                <thead>
+                  <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-sortable="true" data-field="id">序号</th>
+                    <th data-sortable="true" data-field="CreateTime">注册时间</th>
+                    <th data-sortable="true" data-field="name">客户姓名</th>
+                    <th data-sortable="true" data-field="Mobile">手机号</th>
+                    <th data-sortable="true" data-field="Avatar">微信头像</th>
+                    <th data-sortable="true" data-field="NickName">微信昵称</th>
+                  </tr>
+                </thead>
+                <tbody>                  
+                </tbody>
+              </table>                    
+            </div>
+            <!-- 产品路演预约客户 -->
+            <div class="tab-pane" id="customers4">
+              <!-- table -->
+              <table id="bootstrapTable" class="table bootstrapTable" 
+                data-toolbar="#toolbar" 
+                data-toggle="table" 
+                data-search="true" 
+                data-show-refresh="true" 
+                data-show-toggle="true" 
+                data-show-columns="true" 
+                data-page-list="[15, 25, 50, 100, ALL]" 
+                data-sortable="true"
+                data-sort-name="name"
+                data-sort-order="desc"
+                data-sort-class="custom-sort"
+                data-order="asc" 
+                data-click-to-select="true" 
+                data-pagination="true"
+                data-mobile-responsive="true"
+                data-cookie="true"
+                data-cookie-id-table="bootstrapTable"               
+                data-show-export="true"
+                data-id-field="id"
+                data-locale="zh-CN">
+                <thead>
+                  <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-sortable="true" data-field="id">序号</th>
+                    <th data-sortable="true" data-field="WritingDate">日期</th>
+                    <th data-sortable="true" data-field="name">产品路演标题</th>
+                    <th data-sortable="true" data-field="Status">路演状态</th>
+                    <th data-sortable="true" data-field="ReadNum">页面浏览量</th>
+                    <th data-sortable="true" data-field="RegistrationNumber">报名人数</th>
+                    <th data-sortable="true" data-field="Detail">客户明细</th>
+                  </tr>
+                </thead>
+                <tbody>                  
+                </tbody>
+              </table>                    
+            </div>
+            <!-- 活动预约客户 -->
+            <div class="tab-pane" id="customers5">
+              <!-- table -->
+              <table id="bootstrapTable" class="table bootstrapTable" 
+                data-toolbar="#toolbar" 
+                data-toggle="table" 
+                data-search="true" 
+                data-show-refresh="true" 
+                data-show-toggle="true" 
+                data-show-columns="true" 
+                data-page-list="[15, 25, 50, 100, ALL]" 
+                data-sortable="true"
+                data-sort-name="name"
+                data-sort-order="desc"
+                data-sort-class="custom-sort"
+                data-order="asc" 
+                data-click-to-select="true" 
+                data-pagination="true"
+                data-mobile-responsive="true"
+                data-cookie="true"
+                data-cookie-id-table="bootstrapTable"               
+                data-show-export="true"
+                data-id-field="id"
+                data-locale="zh-CN">
+                <thead>
+                  <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-sortable="true" data-field="id">序号</th>
+                    <th data-sortable="true" data-field="WritingDate">日期</th>
+                    <th data-sortable="true" data-field="name">活动预约标题</th>
+                    <th data-sortable="true" data-field="Status">活动状态</th>
+                    <th data-sortable="true" data-field="ReadNum">页面浏览量</th>
+                    <th data-sortable="true" data-field="RegistrationNumber">报名人数</th>
+                    <th data-sortable="true" data-field="Detail">客户明细</th>
+                  </tr>
+                </thead>
+                <tbody>                  
+                </tbody>
+              </table>                     
+            </div>
+          </div>
+        </div>                
+      </div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-<include file="Common/footer" />  
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
+<include file="Common/footer" /> 
+<!-- footer-script -->
+<include file="Common/footer-script" />
+<!--bootstrap table -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="{$resource_basic}plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/cookie/bootstrap-table-cookie.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/export/tableExport.min.js"></script>
+<script src="{$resource_basic}plugins/bootstrap-table/extensions/export/bootstrap-table-export.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="{$resource_basic}plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 </body>
 </html>

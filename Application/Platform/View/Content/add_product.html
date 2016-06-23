@@ -1,0 +1,350 @@
+<include file="Common/header" />
+<include file="Common/sidebar" />
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <include file="Common/navigation" />
+    <!-- Main content -->
+    <section class="content">
+        <!-- Panel default -->
+        <form class="form-horizontal interdependencies" data-toggle="validator" role="form" method="post">
+            <div class="panel panel-default">
+                <!--<div class="panel-heading">
+        <h3 class="panel-title">添加产品</h3>
+      </div>-->
+                <div class="panel-body p-no">
+                    <!-- panel -->
+                    <div class="panel panel-default r-no b-no m-no">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">基本信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">募集状态</label>
+                                <div class="col-md-10">
+                                    <label class="radio radio-inline">
+                                        <input type="radio" class="radiobox" value="0" name="pstatus" checked>
+                                        <span>首发募集</span>
+                                    </label>
+                                    <label class="radio radio-inline">
+                                        <input type="radio" class="radiobox" value="1" name="pstatus">
+                                        <span>募集中</span>
+                                    </label>
+                                    <label class="radio radio-inline">
+                                        <input type="radio" class="radiobox" value="2" name="pstatus">
+                                        <span>已经募集</span>
+                                    </label>
+                                    <label class="radio radio-inline">
+                                        <input type="radio" class="radiobox" value="3" name="pstatus">
+                                        <span>终止（产品将不显示）</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">产品名称 <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="product_name" data-toggle="tooltip" data-placement="bottom" title="" name="product_name" placeholder="不能为空" data-original-title="必填项">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    <select>
+                                        <option value="0">投资经理</option>
+                                        <option value="1">投资顾问</option>
+                                    </select>
+                                    <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" data-toggle="tooltip" data-placement="bottom" title="" id="investment_manager" name="investment_manager" placeholder="不能为空" data-original-title="必填项！">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">认购门槛 <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" data-toggle="tooltip" data-placement="bottom" placeholder="要求≥100" title="" id="subscribe_requirement" name="subscribe_requirement" data-original-title="要求≥100">
+                                        <span class="input-group-addon">万</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">管理人 <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="manager" name="manager" data-toggle="tooltip" data-placement="bottom" title="" placeholder="不能为空" data-original-title="必填项" aria-required="true" aria-invalid="false">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">托管机构 <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="trustee_agency" name="trustee_agency" data-toggle="tooltip" data-placement="bottom" title="" placeholder="不能为空" data-original-title="必填项">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">追加发行门槛</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" data-toggle="tooltip" data-placement="bottom" title="" id="additional_pulish_requirement" name="additional_pulish_requirement" placeholder="追加发行门槛,需要>0" data-original-title="要求>0！">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">发行开始日期</label>
+                                <div class="col-md-10">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" data-provide="datepicker" name="pulish_b_date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">发行结束日期</label>
+                                <div class="col-md-10">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" data-provide="datepicker" name="pulish_e_date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">成立日期</label>
+                                <div class="col-md-10">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" data-provide="datepicker" name="pulish_f_date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">币种选择</label>
+                                <div class="col-md-10">
+                                    <label class="radio radio-inline">
+                                        <input type="radio" class="radiobox" value="RMB" name="currency" checked>
+                                        <span>人民币</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">封闭期</label>
+                                <div class="col-md-10">
+                                    <select class="form-control input-sm" id="close_limit" name="close_limit" aria-invalid="false">
+                                        <option value="0">无</option>
+                                        <option value="3">三个月</option>
+                                        <option value="6">六个月</option>
+                                        <option value="12">一年</option>
+                                        <option value="24">两年</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">产品期限</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="product_limit" name="product_limit">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">推介起始日</label>
+                                <div class="col-md-10">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" data-provide="datepicker" name="introduce_b_date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">推介终止日</label>
+                                <div class="col-md-10">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" data-provide="datepicker" name="introduce_e_date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">赎回申请</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="redemption" name="redemption">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">选择基准</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" name="standard">
+                                        <option value="">--请选择基准--</option>
+                                        <option value="0">--无--</option>
+                                        <option value="1">上证指数</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /panel-body -->
+                    </div>
+                    <!-- panel -->
+                    <div class="panel panel-default r-no b-no m-no">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">费率信息</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">认购费</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" placeholder="认购费,最多支持255个字符" data-toggle="tooltip" data-placement="bottom" title="" id="front_end_load" name="front_end_load" data-original-title="认购费,最多支持255个字符">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">赎回费</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="redemFee" placeholder="赎回费,最多支持255个字符" data-toggle="tooltip" data-placement="bottom" title="" name="redemption_fee" data-original-title="赎回费,最多支持255个字符">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">托管费</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="agentFee" placeholder="托管费,最多支持255个字符" data-toggle="tooltip" data-placement="bottom" title="" name="trustee_fee" data-original-title="托管费,最多支持255个字符">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">浮动管理费</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="notFixedFee" placeholder="浮动管理费,最多支持255个字符" data-toggle="tooltip" data-placement="bottom" title="" name="manager_fee_float" data-original-title="浮动管理费,最多支持255个字符">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">固定管理费</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="fixedFee" placeholder="固定管理费,最多支持255个字符" data-toggle="tooltip" data-placement="bottom" title="" name="manager_fee_fix" data-original-title="固定管理费,最多支持255个字符">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">其他</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="otherFee" placeholder="最多支持255个字符" data-toggle="tooltip" data-placement="bottom" title="" name="other_mark" data-original-title="最多支持255个字符">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">开放日期</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="openDate2" placeholder="开放日期,最多支持255个字符" data-toggle="tooltip" data-placement="bottom" title="" name="openDate" data-original-title="开放日期,最多支持255个字符">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- panel -->
+                    <div class="panel panel-default r-no b-no m-no">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">投资范围</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">投资范围</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" id="invest_range" name="invest_range" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">推荐理由</label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" id="reasons" name="reasons" rows="3" data-placement="bottom" data-toggle="tooltip" title="" placeholder="字符数超过60，将截取60个字符" data-original-title="字符数超过60，将截取60个字符"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">设置产品权限</label>
+                                <div class="col-md-10">
+                                    <select class="form-control input-sm" id="permission" name="permission" aria-invalid="false">
+                                        <option value="0">对所有人公开</option>
+                                        <option value="1">注册及所有产品客户可见</option>
+                                        <option value="2">仅购买该产品客户可见</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-md-10">
+                                    <label class="checkbox checkbox-inline">
+                                        <input type="checkbox" class="checkbox" id="productDisclaimer" value="true" name="productDisclaimer" data-depend-id="menu_type">
+                                        <span>在本产品详情页加入免责条款</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group hidden" data-controller="menu_type" data-condition="==" data-value="true">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-md-10">
+                                    <textarea class="form-control" id="exceptions" name="exceptions" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a type="button" class="btn btn-default" href="{:U('Platform/Content/product')}">返回</a>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<include file="Common/footer" />
+<!-- footer-script -->
+<include file="Common/footer-script" />
+<!-- bootstrap-validator -->
+<script src="{$resource_basic}plugins/bootstrap-validator/validator.min.js"></script>
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="{$resource_basic}plugins/datepicker/datepicker3.css">
+<script src="{$resource_basic}plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- jquery.interdependencies -->
+<script src="{$resource_basic}plugins/vendor/jquery.interdependencies.js"></script>
+<script type="text/javascript">
+(function($) {
+    "use strict";
+
+    function buildRuleset() {
+        // Start creating a new ruleset
+        var ruleset = $.deps.createRuleset();
+
+        var cfg = {
+            show: function(el) {
+                el.removeClass('hidden');
+            },
+            hide: function(el) {
+                el.addClass('hidden');
+            },
+            log: false,
+            checkTargets: false
+        };
+
+        $.deps.enable($(".interdependencies"), ruleset, cfg);
+
+        $(document).find('[data-controller]').each(function() {
+            var $this = $(this),
+                _controller = $this.data('controller').split('|'),
+                _condition = $this.data('condition').split('|'),
+                _value = $this.data('value').toString().split('|'),
+                _rules = ruleset;
+
+            $.each(_controller, function(index, element) {
+                var value = _value[index] || '',
+                    condition = _condition[index] || _condition[0];
+
+                _rules = _rules.createRule('[data-depend-id="' + element + '"]', condition, value);
+                _rules.include($this);
+            });
+        });
+        return ruleset;
+    }
+
+    $(document).ready(function() {
+        var ruleset = buildRuleset();
+    });
+})(jQuery);
+</script>
+</body>
+
+</html>
